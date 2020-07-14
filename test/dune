@@ -1,10 +1,21 @@
-(executable
- (name test)
- (libraries binaryen))
-
-(rule
- (alias runtest)
+(test
+ (name test_js)
+ (modes
+  (byte js))
+ (libraries binaryen binaryen.js)
+ (modules test_js)
  (deps
-  (:< test.exe))
+  (:js test_js.bc.js))
  (action
-  (run %{<})))
+  (run node %{js}))
+ (js_of_ocaml
+  (flags --no-sourcemap)))
+
+; (test
+;  (name test)
+;  (modes
+;   (best exe))
+;  (libraries binaryen binaryen.native)
+;  (modules test)
+;  (action
+;   (run %{test})))
