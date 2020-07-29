@@ -1,5 +1,7 @@
 (executable
  (name test)
+ (modes
+  (byte exe))
  (libraries binaryen))
 
 (rule

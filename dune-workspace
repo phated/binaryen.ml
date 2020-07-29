@@ -1,0 +1,7 @@
+(lang dune 2.6)
+
+(profile release)
+
+(context
+ (default
+  (disable_dynamically_linked_foreign_archives true)))

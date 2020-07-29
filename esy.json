@@ -9,6 +9,8 @@
     "@opam/dune": "~2.6.1"
   },
   "devDependencies": {
+    "esy-cmake": "esy-packages/esy-cmake",
+    "esy-python": "esy-packages/esy-python",
     "@opam/ocamlformat": "*",
     "@opam/ocaml-lsp-server": "ocaml/ocaml-lsp:ocaml-lsp-server.opam#ce1840355541ff60b999e39388835027f89d8798"
   },
