@@ -1,12 +1,11 @@
 (executable
  (name test)
- (modes
-  (byte exe))
+ (modes byte)
  (libraries binaryen))
 
 (rule
  (alias runtest)
  (deps
-  (:< test.exe))
+  (:< test.bc))
  (action
   (run %{<})))
