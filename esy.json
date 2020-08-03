@@ -1,17 +1,17 @@
 {
-  "name": "binaryen.ml",
-  "version": "0.2.2",
+  "name": "binaryen",
+  "version": "0.2.3",
   "description": "OCaml bindings for Binaryen.",
   "author": "Oscar Spencer <oscar@grain-lang.org>",
   "license": "Apache-2.0",
   "dependencies": {
-    "ocaml": "^4.9.0",
-    "@opam/dune": "~2.6.1"
-  },
-  "devDependencies": {
+    "@opam/dune": "~2.6.1",
     "esy-cmake": "esy-packages/esy-cmake",
     "esy-python": "esy-packages/esy-python",
     "esy-ninja": "esy-packages/esy-ninja",
+    "ocaml": "^4.9.0"
+  },
+  "devDependencies": {
     "@opam/ocamlformat": "*",
     "@opam/ocaml-lsp-server": "ocaml/ocaml-lsp:ocaml-lsp-server.opam#ce1840355541ff60b999e39388835027f89d8798"
   },
