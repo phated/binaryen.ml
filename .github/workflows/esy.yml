@@ -14,7 +14,8 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
 
     steps:
-      - name: (Windows) Add msbuild to PATH
+      - name: (Windows) Find msbuild
+        id: msbuild
         if: runner.os == 'Windows'
         uses: microsoft/setup-msbuild@v1.0.1
 
@@ -58,20 +59,28 @@ jobs:
         if: steps.esy-cache.outputs.cache-hit != 'true'
         run: |
           esy build-dependencies --release
+        env:
+          MSBUILD: ${{ steps.msbuild.outputs.msbuildPath }}
 
       - name: Build project in release
         run: |
           esy build --release
+        env:
+          MSBUILD: ${{ steps.msbuild.outputs.msbuildPath }}
 
       # Then build in non-release so we can test
       - name: Build dependencies
         if: steps.esy-cache.outputs.cache-hit != 'true'
         run: |
           esy build-dependencies
+        env:
+          MSBUILD: ${{ steps.msbuild.outputs.msbuildPath }}
 
       - name: Build project
         run: |
           esy build
+        env:
+          MSBUILD: ${{ steps.msbuild.outputs.msbuildPath }}
 
       # Re-export dependencies if anything has changed or if it is the first time
       - name: Build esy cache
