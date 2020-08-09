@@ -22,9 +22,9 @@ jobs:
       - name: (Windows) Setup env vars
         if: runner.os == 'Windows'
         run: |
-          echo "::set-env CI_PATH=C:/msys64/mingw64/bin;C:/ProgramData/Chocolatey/bin;C:/Program\ Files/nodejs;/usr/local/bin;/usr/bin;/bin;/usr/sbin;/sbin;C:/windows/System32"
-          echo "::set-env ESY__GLOBAL_PATH=CI_PATH"
           echo "::set-env MSBUILD=${{ steps.msbuild.outputs.msbuildPath }}"
+          echo "::set-env CI_PATH=C:/msys64/mingw64/bin;C:/ProgramData/Chocolatey/bin;C:/Program Files/nodejs;/usr/local/bin;/usr/bin;/bin;/usr/sbin;/sbin;C:/windows/System32"
+          echo "::set-env ESY__GLOBAL_PATH=CI_PATH"
 
       - name: Setup node.js
         uses: actions/setup-node@v2.1.0
