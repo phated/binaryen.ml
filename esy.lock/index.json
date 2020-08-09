@@ -546,7 +546,7 @@
         "@opam/result@opam:1.5@6b753c82", "@opam/fpath@opam:0.7.2@45477b93",
         "@opam/dune@opam:2.6.2@20433b4f", "@opam/cppo@opam:1.6.6@f4f83858",
         "@opam/cmdliner@opam:1.0.4@93208aac",
-        "@opam/astring@opam:0.8.4@bfea80d7",
+        "@opam/astring@opam:0.8.5@1300cee8",
         "@esy-ocaml/substs@0.0.1@d41d8cd9"
       ],
       "devDependencies": [
@@ -554,7 +554,7 @@
         "@opam/result@opam:1.5@6b753c82", "@opam/fpath@opam:0.7.2@45477b93",
         "@opam/dune@opam:2.6.2@20433b4f",
         "@opam/cmdliner@opam:1.0.4@93208aac",
-        "@opam/astring@opam:0.8.4@bfea80d7"
+        "@opam/astring@opam:0.8.5@1300cee8"
       ]
     },
     "@opam/ocamlformat@opam:0.15.0@417e3356": {
@@ -976,12 +976,12 @@
         "@opam/result@opam:1.5@6b753c82",
         "@opam/ocamlfind@opam:1.8.1@ff07b0f9",
         "@opam/ocamlbuild@opam:0.14.0@6ac75d03",
-        "@opam/astring@opam:0.8.4@bfea80d7",
+        "@opam/astring@opam:0.8.5@1300cee8",
         "@esy-ocaml/substs@0.0.1@d41d8cd9"
       ],
       "devDependencies": [
         "ocaml@4.10.0@d41d8cd9", "@opam/result@opam:1.5@6b753c82",
-        "@opam/astring@opam:0.8.4@bfea80d7"
+        "@opam/astring@opam:0.8.5@1300cee8"
       ]
     },
     "@opam/fix@opam:20200131@0ecd2f01": {
@@ -1297,20 +1297,20 @@
         "@opam/dune@opam:2.6.2@20433b4f"
       ]
     },
-    "@opam/astring@opam:0.8.4@bfea80d7": {
-      "id": "@opam/astring@opam:0.8.4@bfea80d7",
+    "@opam/astring@opam:0.8.5@1300cee8": {
+      "id": "@opam/astring@opam:0.8.5@1300cee8",
       "name": "@opam/astring",
-      "version": "opam:0.8.4",
+      "version": "opam:0.8.5",
       "source": {
         "type": "install",
         "source": [
-          "archive:https://opam.ocaml.org/cache/md5/54/548fcbf501ca4cb816d219ca4f25f660#md5:548fcbf501ca4cb816d219ca4f25f660",
-          "archive:https://erratique.ch/software/astring/releases/astring-0.8.4.tbz#md5:548fcbf501ca4cb816d219ca4f25f660"
+          "archive:https://opam.ocaml.org/cache/md5/e1/e148907c24157d1df43bec89b58b3ec8#md5:e148907c24157d1df43bec89b58b3ec8",
+          "archive:https://erratique.ch/software/astring/releases/astring-0.8.5.tbz#md5:e148907c24157d1df43bec89b58b3ec8"
         ],
         "opam": {
           "name": "astring",
-          "version": "0.8.4",
-          "path": "esy.lock/opam/astring.0.8.4"
+          "version": "0.8.5",
+          "path": "esy.lock/opam/astring.0.8.5"
         }
       },
       "overrides": [],

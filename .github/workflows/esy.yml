@@ -19,6 +19,13 @@ jobs:
         if: runner.os == 'Windows'
         uses: microsoft/setup-msbuild@v1.0.1
 
+      - name: (Windows) Setup env vars
+        if: runner.os == 'Windows'
+        runs: |
+          echo "::set-env CI_PATH=C:/msys64/mingw64/bin;C:/ProgramData/Chocolatey/bin;C:/Program\ Files/nodejs;/usr/local/bin;/usr/bin;/bin;/usr/sbin;/sbin;C:/windows/System32"
+          echo "::set-env ESY__GLOBAL_PATH=CI_PATH"
+          echo "::set-env MSBUILD=${{ steps.msbuild.outputs.msbuildPath }}"
+
       - name: Setup node.js
         uses: actions/setup-node@v2.1.0
         with:
@@ -59,36 +66,20 @@ jobs:
         if: steps.esy-cache.outputs.cache-hit != 'true'
         run: |
           esy build-dependencies --release
-        env:
-          MSBUILD: ${{ steps.msbuild.outputs.msbuildPath }}
-          CI_PATH: "C:/msys64/mingw64/bin;C:/ProgramData/Chocolatey/bin;/usr/local/bin;/usr/bin;/bin;/usr/sbin;/sbin;C:/windows/System32"
-          ESY__GLOBAL_PATH: "CI_PATH"
 
       - name: Build project in release
         run: |
           esy build --release
-        env:
-          MSBUILD: ${{ steps.msbuild.outputs.msbuildPath }}
-          CI_PATH: "C:/msys64/mingw64/bin;C:/ProgramData/Chocolatey/bin;/usr/local/bin;/usr/bin;/bin;/usr/sbin;/sbin;C:/windows/System32"
-          ESY__GLOBAL_PATH: "CI_PATH"
 
       # Then build in non-release so we can test
       - name: Build dependencies
         if: steps.esy-cache.outputs.cache-hit != 'true'
         run: |
           esy build-dependencies
-        env:
-          MSBUILD: ${{ steps.msbuild.outputs.msbuildPath }}
-          CI_PATH: "C:/msys64/mingw64/bin;C:/ProgramData/Chocolatey/bin;/usr/local/bin;/usr/bin;/bin;/usr/sbin;/sbin;C:/windows/System32"
-          ESY__GLOBAL_PATH: "CI_PATH"
 
       - name: Build project
         run: |
           esy build
-        env:
-          MSBUILD: ${{ steps.msbuild.outputs.msbuildPath }}
-          CI_PATH: "C:/msys64/mingw64/bin;C:/ProgramData/Chocolatey/bin;/usr/local/bin;/usr/bin;/bin;/usr/sbin;/sbin;C:/windows/System32"
-          ESY__GLOBAL_PATH: "CI_PATH"
 
       # Re-export dependencies if anything has changed or if it is the first time
       - name: Build esy cache
