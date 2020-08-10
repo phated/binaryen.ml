@@ -14,17 +14,6 @@
       (run cmake --build .)))
     (copy binaryen/lib/libbinaryen.a libbinaryen.a)))))
 
-(rule
- (deps libbinaryen.a)
- (targets dllbinaryen.so)
- (action
-  (no-infer
-   (progn
-    (chdir
-     binaryen/lib
-     (run gcc -shared -o dllbinaryen.so libbinaryen.a -lstdc++))
-    (copy binaryen/lib/dllbinaryen.so dllbinaryen.so)))))
-
 (library
  (name binaryen_native)
  (public_name binaryen.native)
