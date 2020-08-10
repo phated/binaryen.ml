@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "ocaml": "^4.9.0",
-    "@opam/dune": "^2.6.1",
+    "@opam/dune": "2.6.1",
     "@opam/js_of_ocaml": "^3.6.0",
     "@opam/js_of_ocaml-ppx": "^3.6.0",
     "esy-cmake": "esy-packages/esy-cmake#d3e4fb29ca3e01c13f62c8ca8af061ea976b6096",
