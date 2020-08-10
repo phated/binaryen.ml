@@ -72,9 +72,6 @@ jobs:
       - name: Build project in release
         run: |
           esy build --release
-        env:
-          CI_PATH: "/usr/local/bin;/usr/bin;/bin;/usr/sbin;/sbin;C:/windows/System32;C:/msys64/mingw64/bin;C:/ProgramData/Chocolatey/bin;C:/Program Files/nodejs"
-          ESY__GLOBAL_PATH: "CI_PATH"
 
       # Then build in non-release so we can test
       - name: Build dependencies
@@ -88,9 +85,6 @@ jobs:
       - name: Build project
         run: |
           esy build
-        env:
-          CI_PATH: "/usr/local/bin;/usr/bin;/bin;/usr/sbin;/sbin;C:/windows/System32;C:/msys64/mingw64/bin;C:/ProgramData/Chocolatey/bin;C:/Program Files/nodejs"
-          ESY__GLOBAL_PATH: "CI_PATH"
 
       # Re-export dependencies if anything has changed or if it is the first time
       - name: Build esy cache
