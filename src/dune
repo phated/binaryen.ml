@@ -10,8 +10,8 @@
     (chdir
      binaryen
      (progn
-      (run cmake -D BUILD_STATIC_LIB=ON -D CMAKE_C_COMPILER_WORKS=1 -D
-        CMAKE_CXX_COMPILER_WORKS=1 .)
+      (run cmake -D BUILD_STATIC_LIB=ON -D
+        CMAKE_TRY_COMPILE_TARGET_TYPE=STATIC_LIBRARY .)
       (run cmake --build .)))
     (copy binaryen/lib/libbinaryen.a libbinaryen.a)))))
 
