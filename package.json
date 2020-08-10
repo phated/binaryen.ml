@@ -20,7 +20,8 @@
   "esy": {
     "build": "dune build @all @install --no-buffer",
     "buildEnv": {
-      "DUNE_BUILD_DIR": "#{self.target_dir}"
+      "DUNE_BUILD_DIR": "#{self.target_dir}",
+      "MSBUILD": "#{$MSBUILD}"
     }
   },
   "scripts": {
