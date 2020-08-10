@@ -22,7 +22,7 @@
    (progn
     (chdir
      binaryen/lib
-     (run gcc -shared -o dllbinaryen.so libbinaryen.a -lstdc++))
+     (run %{cc} -shared -o dllbinaryen.so libbinaryen.a -lstdc++))
     (copy binaryen/lib/dllbinaryen.so dllbinaryen.so)))))
 
 (rule
@@ -33,7 +33,7 @@
    (progn
     (chdir
      binaryen/lib
-     (run gcc -shared -o dllbinaryen.dll libbinaryen.a -lstdc++))
+     (run %{cc} -shared -o dllbinaryen.dll libbinaryen.a -lstdc++))
     (copy binaryen/lib/dllbinaryen.dll dllbinaryen.dll)))))
 
 (library
