@@ -10,7 +10,7 @@
     (chdir
      binaryen
      (progn
-      (run cmake -D BUILD_STATIC_LIB=ON -D
+      (run cmake -G "MinGW Makefiles" -D BUILD_STATIC_LIB=ON -D
         CMAKE_TRY_COMPILE_TARGET_TYPE=STATIC_LIBRARY .)
       (run cmake --build .)))
     (copy binaryen/lib/libbinaryen.a libbinaryen.a)))))
