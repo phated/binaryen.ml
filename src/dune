@@ -11,7 +11,8 @@
      binaryen
      (progn
       (run cmake -S . -B out -DBUILD_STATIC_LIB=ON
-        -DCMAKE_C_COMPILER=%{bin:gcc} -DCMAKE_CXX_COMPILER=%{bin:g++})
+        -DCMAKE_C_COMPILER=%{bin:x86_64-w64-mingw32-gcc.exe}
+        -DCMAKE_CXX_COMPILER=%{bin:x86_64-w64-mingw32-g++.exe})
       (run cmake --build out --config Release)))
     (copy binaryen/out/lib/libbinaryen.a libbinaryen.a)))))
 
@@ -20,14 +21,16 @@
  (targets dllbinaryen.so)
  (action
   (no-infer
-   (run %{bin:gcc} -shared -o dllbinaryen.so libbinaryen.a -lstdc++))))
+   (run %{bin:x86_64-w64-mingw32-gcc.exe} -shared -o dllbinaryen.so
+     libbinaryen.a -lstdc++))))
 
 (rule
  (deps libbinaryen.a)
  (targets dllbinaryen.dll)
  (action
   (no-infer
-   (run %{bin:gcc} -shared -o dllbinaryen.dll libbinaryen.a -lstdc++))))
+   (run %{bin:x86_64-w64-mingw32-gcc.exe} -shared -o dllbinaryen.dll
+     libbinaryen.a -lstdc++))))
 
 (library
  (name binaryen_native)
