@@ -11,7 +11,7 @@
      binaryen
      (progn
       (run cmake -S . -B out -DBUILD_STATIC_LIB=ON
-        -DCMAKE_INSTALL_PREFIX=out/install)
+        -DCMAKE_C_COMPILER=%{bin:gcc} -DCMAKE_CXX_COMPILER=%{bin:g++})
       (run cmake --build out --config Release)))
     (copy binaryen/out/lib/libbinaryen.a libbinaryen.a)))))
 
