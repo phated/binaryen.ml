@@ -69,6 +69,7 @@ jobs:
           MSBUILD: ${{ steps.msbuild.outputs.msbuildPath }}
 
       - name: Build project in release
+        shell: bash
         run: |
           esy build --release --verbose
 
@@ -80,9 +81,10 @@ jobs:
         env:
           MSBUILD: ${{ steps.msbuild.outputs.msbuildPath }}
 
-      # - name: Build project
-      #   run: |
-      #     esy build --verbose
+      - name: Build project
+        shell: bash
+        run: |
+          esy build --verbose
 
       # Re-export dependencies if anything has changed or if it is the first time
       - name: Build esy cache
