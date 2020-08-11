@@ -3,7 +3,7 @@
 (rule
  (deps
   (source_tree binaryen))
- (targets libbinaryen.a)
+ (targets libbinaryen.dll)
  (action
   (no-infer
    (progn
@@ -12,7 +12,7 @@
      (progn
       (run cmake -G "MinGW Makefiles" -D BUILD_STATIC_LIB=ON .)
       (run cmake --build .)))
-    (copy binaryen/lib/libbinaryen.a libbinaryen.a)))))
+    (copy binaryen/lib/libbinaryen.dll libbinaryen.dll)))))
 
 (rule
  (deps libbinaryen.a)
