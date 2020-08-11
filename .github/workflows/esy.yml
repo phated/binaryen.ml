@@ -61,16 +61,16 @@ jobs:
           shx rm -rf _export
 
       # Build the project in release to make sure deps are specified correctly
-      - name: Build release dependencies
-        if: steps.esy-cache.outputs.cache-hit != 'true'
-        run: |
-          esy build-dependencies --release
-        env:
-          MSBUILD: ${{ steps.msbuild.outputs.msbuildPath }}
+      # - name: Build release dependencies
+      #   if: steps.esy-cache.outputs.cache-hit != 'true'
+      #   run: |
+      #     esy build-dependencies --release
+      #   env:
+      #     MSBUILD: ${{ steps.msbuild.outputs.msbuildPath }}
 
-      - name: Build project in release
-        run: |
-          esy build --release --verbose
+      # - name: Build project in release
+      #   run: |
+      #     esy build --release --verbose
 
       # Then build in non-release so we can test
       - name: Build dependencies
@@ -80,9 +80,9 @@ jobs:
         env:
           MSBUILD: ${{ steps.msbuild.outputs.msbuildPath }}
 
-      - name: Build project
-        run: |
-          esy build --verbose
+      # - name: Build project
+      #   run: |
+      #     esy build --verbose
 
       # Re-export dependencies if anything has changed or if it is the first time
       - name: Build esy cache
@@ -90,6 +90,6 @@ jobs:
         run: |
           esy export-dependencies
 
-      - name: Run tests
-        run: |
-          esy test
+      # - name: Run tests
+      #   run: |
+      #     esy test
