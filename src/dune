@@ -11,7 +11,7 @@
      binaryen
      (progn
       (run cmake -S . -B out -DBUILD_STATIC_LIB=ON --debug-output --trace)
-      (run cmake --build out --config Release)))
+      (run cmake --build out))
     (copy binaryen/out/lib/libbinaryen.a libbinaryen.a)))))
 
 (rule
