@@ -71,9 +71,6 @@ jobs:
       - name: Build project in release
         run: |
           esy build --release --verbose
-        env:
-          CI_PATH: "C:/hostedtoolcache/windows/node/14.5.0/x64;/usr/local/bin;/usr/bin;/bin;/usr/sbin;/sbin;C:/windows/System32"
-          ESY__GLOBAL_PATH: "CI_PATH"
 
       # Then build in non-release so we can test
       - name: Build dependencies
@@ -86,9 +83,6 @@ jobs:
       - name: Build project
         run: |
           esy build --verbose
-        env:
-          CI_PATH: "C:/hostedtoolcache/windows/node/14.5.0/x64;/usr/local/bin;/usr/bin;/bin;/usr/sbin;/sbin;C:/windows/System32"
-          ESY__GLOBAL_PATH: "CI_PATH"
 
       # Re-export dependencies if anything has changed or if it is the first time
       - name: Build esy cache

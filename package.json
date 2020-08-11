@@ -22,8 +22,9 @@
     "buildEnv": {
       "DUNE_BUILD_DIR": "#{self.target_dir}",
       "MSBUILD": "#{$MSBUILD}",
-      "CC": "x86_64-w64-mingw32-gcc",
-      "CXX": "x86_64-w64-mingw32-g++"
+      "CC": "#{ os == 'windows' ? 'x86_64-w64-mingw32-gcc' : ''}",
+      "CXX": "#{ os == 'windows' ? 'x86_64-w64-mingw32-g++' : ''}",
+      "PATH": "#{$PATH : 'C:' / 'hostedtoolcache' / 'windows' / 'node' / '14.5.0' / 'x64'}"
     }
   },
   "scripts": {

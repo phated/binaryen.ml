@@ -10,7 +10,7 @@
     (chdir
      binaryen
      (progn
-      (run cmake -S . -B out -DBUILD_STATIC_LIB=ON)
+      (run cmake -S . -B out -DBUILD_STATIC_LIB=ON --debug-output)
       (run cmake --build out --config Release)))
     (copy binaryen/out/lib/libbinaryen.a libbinaryen.a)))))
 
@@ -19,16 +19,14 @@
  (targets dllbinaryen.so)
  (action
   (no-infer
-   (run %{bin:x86_64-w64-mingw32-gcc} -shared -o dllbinaryen.so libbinaryen.a
-     -lstdc++))))
+   (run %{cc} -shared -o dllbinaryen.so libbinaryen.a -lstdc++))))
 
 (rule
  (deps libbinaryen.a)
  (targets dllbinaryen.dll)
  (action
   (no-infer
-   (run %{bin:x86_64-w64-mingw32-gcc} -shared -o dllbinaryen.dll
-     libbinaryen.a -lstdc++))))
+   (run %{cc} -shared -o dllbinaryen.dll libbinaryen.a -lstdc++))))
 
 (library
  (name binaryen_native)
