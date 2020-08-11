@@ -69,7 +69,6 @@ jobs:
           MSBUILD: ${{ steps.msbuild.outputs.msbuildPath }}
 
       - name: Build project in release
-        shell: bash
         run: |
           esy build --release --verbose
 
@@ -82,7 +81,6 @@ jobs:
           MSBUILD: ${{ steps.msbuild.outputs.msbuildPath }}
 
       - name: Build project
-        shell: bash
         run: |
           esy build --verbose
 
