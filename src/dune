@@ -10,9 +10,7 @@
     (chdir
      binaryen
      (progn
-      (run cmake -S . -B out -DBUILD_STATIC_LIB=ON
-        -DCMAKE_C_COMPILER=%{bin:x86_64-w64-mingw32-gcc}
-        -DCMAKE_CXX_COMPILER=%{bin:x86_64-w64-mingw32-g++})
+      (run cmake -S . -B out -DBUILD_STATIC_LIB=ON)
       (run cmake --build out --config Release)))
     (copy binaryen/out/lib/libbinaryen.a libbinaryen.a)))))
 
