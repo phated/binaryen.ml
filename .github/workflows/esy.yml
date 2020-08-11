@@ -70,7 +70,7 @@ jobs:
 
       - name: Build project in release
         run: |
-          esy build --release
+          esy build --release --verbose
         env:
           CI_PATH: "C:/msys64/mingw64/bin;C:/hostedtoolcache/windows/node/14.5.0/x64;/usr/local/bin;/usr/bin;/bin;/usr/sbin;/sbin;C:/windows/System32"
           ESY__GLOBAL_PATH: "CI_PATH"
@@ -85,7 +85,7 @@ jobs:
 
       - name: Build project
         run: |
-          esy build
+          esy build --verbose
         env:
           CI_PATH: "C:/msys64/mingw64/bin;C:/hostedtoolcache/windows/node/14.5.0/x64;/usr/local/bin;/usr/bin;/bin;/usr/sbin;/sbin;C:/windows/System32"
           ESY__GLOBAL_PATH: "CI_PATH"

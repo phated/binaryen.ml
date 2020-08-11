@@ -3,16 +3,16 @@
 (rule
  (deps
   (source_tree binaryen))
- (targets libbinaryen.dll)
+ (targets libbinaryen.a)
  (action
   (no-infer
    (progn
     (chdir
      binaryen
      (progn
-      (run cmake -G "MinGW Makefiles" -D BUILD_STATIC_LIB=ON .)
+      (run cmake -D BUILD_STATIC_LIB=ON .)
       (run cmake --build .)))
-    (copy binaryen/lib/libbinaryen.dll libbinaryen.dll)))))
+    (copy binaryen/lib/libbinaryen.a libbinaryen.a)))))
 
 (rule
  (deps libbinaryen.a)
