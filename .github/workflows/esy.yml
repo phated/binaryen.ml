@@ -44,6 +44,7 @@ jobs:
           submodules: 'recursive'
 
       - name: CMake Binaryen
+        shell: bash
         run: |
           cd src/binaryen
           cmake -DBUILD_STATIC_LIB=ON .
