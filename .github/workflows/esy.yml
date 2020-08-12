@@ -47,7 +47,7 @@ jobs:
         shell: bash
         run: |
           cd src/binaryen
-          cmake -DBUILD_STATIC_LIB=ON .
+          cmake -G 'MinGW Makefiles' -DBUILD_STATIC_LIB=ON .
           cmake --build .
         env:
           CC: /c/ProgramData/Chocolatey/bin/gcc
