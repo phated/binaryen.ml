@@ -10,9 +10,9 @@
     (chdir
      binaryen
      (progn
-      (run cmake -S . -B out -DBUILD_STATIC_LIB=ON --debug-output --trace)
-      (run cmake --build out)))
-    (copy binaryen/out/lib/libbinaryen.a libbinaryen.a)))))
+      (run cmake -DBUILD_STATIC_LIB=ON .)
+      (run cmake --build .)))
+    (copy binaryen/lib/libbinaryen.a libbinaryen.a)))))
 
 (rule
  (deps libbinaryen.a)
