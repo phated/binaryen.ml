@@ -24,7 +24,7 @@
       "MSBUILD": "#{$MSBUILD}",
       "CC": "#{ os == 'windows' ? 'x86_64-w64-mingw32-gcc' : ''}",
       "CXX": "#{ os == 'windows' ? 'x86_64-w64-mingw32-g++' : ''}",
-      "PATH": "#{$PATH : 'C:' / 'hostedtoolcache' / 'windows' / 'node' / '14.5.0' / 'x64'}"
+      "PATH": "#{'C:' / 'Program Files' / 'CMake' / 'bin' / 'cmake' : 'C:' / 'hostedtoolcache' / 'windows' / 'node' / '14.5.0' / 'x64' : $PATH}"
     }
   },
   "scripts": {
