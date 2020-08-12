@@ -50,8 +50,8 @@ jobs:
           cmake -DBUILD_STATIC_LIB=ON .
           cmake --build .
         env:
-          CC: gcc
-          CXX: g++
+          CC: /c/ProgramData/Chocolatey/bin/gcc
+          CXX: /c/ProgramData/Chocolatey/bin/g++
 
       - name: Install local dependencies
         run: |
