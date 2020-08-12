@@ -1,5 +1,5 @@
 {
-  "checksum": "66cd5ee08677230468a01245bfffa63d",
+  "checksum": "0965d9ffb06f5a0c54ad7e7c320ccff5",
   "root": "binaryen.ml@link-dev:./package.json",
   "node": {
     "ocaml@4.10.0@d41d8cd9": {
@@ -67,22 +67,6 @@
       "dependencies": [],
       "devDependencies": []
     },
-    "esy-cmake@github:esy-packages/esy-cmake#d3e4fb29ca3e01c13f62c8ca8af061ea976b6096@d41d8cd9": {
-      "id":
-        "esy-cmake@github:esy-packages/esy-cmake#d3e4fb29ca3e01c13f62c8ca8af061ea976b6096@d41d8cd9",
-      "name": "esy-cmake",
-      "version":
-        "github:esy-packages/esy-cmake#d3e4fb29ca3e01c13f62c8ca8af061ea976b6096",
-      "source": {
-        "type": "install",
-        "source": [
-          "github:esy-packages/esy-cmake#d3e4fb29ca3e01c13f62c8ca8af061ea976b6096"
-        ]
-      },
-      "overrides": [],
-      "dependencies": [],
-      "devDependencies": []
-    },
     "binaryen.ml@link-dev:./package.json": {
       "id": "binaryen.ml@link-dev:./package.json",
       "name": "binaryen.ml",
@@ -96,7 +80,6 @@
       "dependencies": [
         "ocaml@4.10.0@d41d8cd9",
         "esy-python@github:esy-packages/esy-python#53918f6447633d149ca59329474714c50bf729c4@d41d8cd9",
-        "esy-cmake@github:esy-packages/esy-cmake#d3e4fb29ca3e01c13f62c8ca8af061ea976b6096@d41d8cd9",
         "@opam/js_of_ocaml-ppx@opam:3.7.0@9d1fa02b",
         "@opam/js_of_ocaml@opam:3.7.0@99efac52",
         "@opam/dune@opam:2.6.2@20433b4f"
