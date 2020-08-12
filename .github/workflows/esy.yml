@@ -52,8 +52,9 @@ jobs:
         shell: bash
         run: |
           cd src/binaryen
-          cmake -G 'MinGW Makefiles' -DBUILD_STATIC_LIB=ON .
+          cmake -DBUILD_STATIC_LIB=ON .
           cmake --build .
+          gendef lib/binaryen.lib
 
       - name: Install local dependencies
         run: |
