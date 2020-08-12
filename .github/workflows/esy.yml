@@ -17,7 +17,7 @@ jobs:
       - name: Env
         shell: bash
         run: |
-          ls /c/msys64/mingw64/bin
+          ls /c/ProgramData/Chocolatey/bin/
 
       - name: (Windows) Find msbuild
         id: msbuild
@@ -55,8 +55,8 @@ jobs:
           cmake -G 'MinGW Makefiles' -DBUILD_STATIC_LIB=ON .
           cmake --build .
         env:
-          CC: /c/msys64/mingw64/bin/gcc
-          CXX: /c/msys64/mingw64/bin/g++
+          CC: /c/ProgramData/Chocolatey/bin/gcc
+          CXX: /c/ProgramData/Chocolatey/bin/g++
 
       - name: Install local dependencies
         run: |
