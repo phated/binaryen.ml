@@ -14,6 +14,11 @@ jobs:
         os: [windows-latest]
 
     steps:
+      - name: Env
+        shell: bash
+        run: |
+          ls /c/msys64/mingw64/bin
+
       - name: (Windows) Find msbuild
         id: msbuild
         if: runner.os == 'Windows'
