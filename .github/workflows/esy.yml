@@ -55,8 +55,8 @@ jobs:
           cmake -G 'MinGW Makefiles' -DBUILD_STATIC_LIB=ON .
           cmake --build .
         env:
-          CC: /c/msys64/mingw64/bin/x86_64-w64-mingw32-gcc
-          CXX: /c/msys64/mingw64/bin/x86_64-w64-mingw32-g++
+          CC: /c/msys64/mingw64/bin/gcc
+          CXX: /c/msys64/mingw64/bin/g++
 
       - name: Install local dependencies
         run: |
