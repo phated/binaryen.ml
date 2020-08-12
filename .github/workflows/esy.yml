@@ -54,9 +54,6 @@ jobs:
           cd src/binaryen
           cmake -G 'MinGW Makefiles' -DBUILD_STATIC_LIB=ON .
           cmake --build .
-        env:
-          CC: /c/ProgramData/Chocolatey/bin/x86_64-w64-mingw32-gcc
-          CXX: /c/ProgramData/Chocolatey/bin/x86_64-w64-mingw32-g++
 
       - name: Install local dependencies
         run: |
