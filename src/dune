@@ -6,13 +6,7 @@
  (targets libbinaryen.a)
  (action
   (no-infer
-   (progn
-    (chdir
-     binaryen
-     (progn
-      (run cmake -DBUILD_STATIC_LIB=ON .)
-      (run cmake --build .)))
-    (copy binaryen/lib/libbinaryen.a libbinaryen.a)))))
+   (copy binaryen/lib/libbinaryen.a libbinaryen.a))))
 
 (rule
  (deps libbinaryen.a)

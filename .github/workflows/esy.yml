@@ -43,6 +43,12 @@ jobs:
         with:
           submodules: 'recursive'
 
+      - name: CMake Binaryen
+        run: |
+          cd src/binaryen
+          cmake -DBUILD_STATIC_LIB=ON .
+          cmake --build .
+
       - name: Install local dependencies
         run: |
           esy install
