@@ -25,6 +25,10 @@ jobs:
         with:
           ocaml-version: ${{ matrix.ocaml-version }}
 
+      - name: Install local dependencies
+        run: |
+          opam install opam-publish
+
       - name: Publish to opam (dry-run)
         run: |
-          opam publish --dry-run
+          opam-publish --help
