@@ -20,6 +20,11 @@ jobs:
         with:
           submodules: 'recursive'
 
+      - name: Publish token
+        run: |
+          mkdir -p  ~/.opam/plugins/opam-publish/
+          echo -n ${{ secrets.GITHUB_TOKEN }} > ~/.opam/plugins/opam-publish/binaryen.token
+
       - name: Setup OCaml ${{ matrix.ocaml-version }}
         uses: avsm/setup-ocaml@v1
         with:
@@ -31,4 +36,4 @@ jobs:
 
       - name: Publish to opam (dry-run)
         run: |
-          opam-publish --help
+          opam publish --dry-run ${{ github.event.release.assets.0.browser_download_url }}
