@@ -36,4 +36,4 @@ jobs:
 
       - name: Publish to opam (dry-run)
         run: |
-          opam publish --dry-run ${{ github.event.release.assets.0.browser_download_url }}
+          opam publish --dry-run ${{ github.event.release.assets[0].browser_download_url }}
