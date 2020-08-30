@@ -42,7 +42,3 @@ jobs:
       - name: Run tests
         run: |
           opam exec -- dune runtest --force
-
-      - name: Dry-run opam publish
-        run: |
-          opam publish --help

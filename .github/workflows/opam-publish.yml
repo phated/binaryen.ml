@@ -1,0 +1,30 @@
+name: Binaryen.ml - publish to opam
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    name: Build and test
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        ocaml-version: [4.10.0]
+
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+
+      - name: Setup OCaml ${{ matrix.ocaml-version }}
+        uses: avsm/setup-ocaml@v1
+        with:
+          ocaml-version: ${{ matrix.ocaml-version }}
+
+      - name: Publish to opam (dry-run)
+        run: |
+          opam publish --dry-run
