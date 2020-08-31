@@ -39,6 +39,11 @@ jobs:
         run: |
           opam install opam-publish
 
+      # This is the only way to make opam publish "headless" currently
+      - name: Remove xdg-open
+        run: |
+          rm $(which xdg-open)
+
       - name: Publish to opam (dry-run)
         run: |
           opam publish --repo=grain-lang/opam-repository ${{ github.event.release.assets[0].browser_download_url }}
