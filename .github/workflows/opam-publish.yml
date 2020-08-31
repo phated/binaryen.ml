@@ -32,7 +32,7 @@ jobs:
 
       - name: Generate CHANGES file
         run: |
-          echo -n ${{ github.event.release.body }} > CHANGES.md
+          echo -n "${{ github.event.release.body }}" > CHANGES.md
 
       # This is the only way to make opam publish "headless" currently
       - name: Remove xdg-open
