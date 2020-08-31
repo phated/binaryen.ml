@@ -27,6 +27,8 @@ jobs:
           git clone git://github.com/ocaml/opam-repository ~/.opam/plugins/opam-publish/repos/ocaml%opam-repository
           cd ~/.opam/plugins/opam-publish/repos/ocaml%opam-repository
           git remote add user https://${{ secrets.OPAM_RELEASE }}@github.com/phated/opam-repository
+          git config --global user.email "blaine@grain-lang.org"
+          git config --global user.name "Blaine B"
 
       - name: Setup OCaml ${{ matrix.ocaml-version }}
         uses: avsm/setup-ocaml@v1
@@ -40,5 +42,3 @@ jobs:
       - name: Publish to opam (dry-run)
         run: |
           opam publish --dry-run ${{ github.event.release.assets[0].browser_download_url }}
-        env:
-          OPAMVERBOSE: true
