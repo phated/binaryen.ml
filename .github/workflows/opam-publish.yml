@@ -30,6 +30,15 @@ jobs:
           git config --global user.email "blaine@grain-lang.org"
           git config --global user.name "Blaine B"
 
+      - name: Generate CHANGES file
+        run: |
+          echo -n ${{ github.event.release.body }} > CHANGES.md
+
+      # This is the only way to make opam publish "headless" currently
+      - name: Remove xdg-open
+        run: |
+          sudo rm $(which xdg-open)
+
       - name: Setup OCaml ${{ matrix.ocaml-version }}
         uses: avsm/setup-ocaml@v1
         with:
@@ -39,11 +48,6 @@ jobs:
         run: |
           opam install opam-publish
 
-      # This is the only way to make opam publish "headless" currently
-      - name: Remove xdg-open
-        run: |
-          sudo rm $(which xdg-open)
-
       - name: Publish to opam (dry-run)
         run: |
-          opam publish --repo=grain-lang/opam-repository ${{ github.event.release.assets[0].browser_download_url }}
+          opam publish --msg-file=CHANGES.md --repo=grain-lang/opam-repository ${{ github.event.release.assets[0].browser_download_url }}
