@@ -42,7 +42,7 @@ jobs:
       # This is the only way to make opam publish "headless" currently
       - name: Remove xdg-open
         run: |
-          rm $(which xdg-open)
+          sudo rm $(which xdg-open)
 
       - name: Publish to opam (dry-run)
         run: |
